@@ -1,0 +1,31 @@
+---
+
+dell_rhn_channels:
+  - 'dell-dsu-el7-x86_64'
+  - 'dell-dsu-independent-x86_64'
+
+# defaults file for ansible-role-dell
+# set to false to not install anything
+install_dell_dsu: True
+
+dell_packages:
+ - "srvadmin-idracadm7"
+ - "openssl-devel"
+ - "dell-system-update"
+ - "net-tools"
+
+# If True install packages so one can run check_openmanage
+# http://folk.uio.no/trondham/software/check_openmanage.html
+dell_omreport: True
+dell_omreport_packages:
+ - "srvadmin-omacore"
+ - "srvadmin-storageservices"
+
+dell_helper_scripts:
+ - "racadm.sh"
+ - "wrapper_racadm.sh"
+
+dell_install_helper_scripts: True
+
+# Set this to False to not comment out the "vil7=dsm_sm_psrvil" in stsvc.ini from srvadmin-storage
+dell_disable_vil7: True
