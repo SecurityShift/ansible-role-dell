@@ -1,26 +1,12 @@
 ---
 # tasks file for ansible-role-dell
 
-- name: Add channel gpg keys
-  copy:
-    src: "RPM-GPG-KEY-dell"
-    dest: '/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'
-
-- name: Import channel gpg keys
-  rpm_key:
-    state: present
-    key: '/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'
-
 - name: Subscribe to required channels
-  rhn_channel:
-    name: '{{ item }}'
-    state: '{{ item.state | default("present") }}'
-    sysname: '{{ inventory_hostname }}'
-    url: 'https://{{ spacewalk_server }}/rpc/api'
-    user: '{{ spacewalk_admin_user }}'
-    password: '{{ spacewalk_admin_password }}'
-  with_items:
-    - '{{ dell_rhn_channels }}'
+  import_role:
+    name: spacewalk-client
+    tasks_from: channel.yml
+  vars:
+    channels: '{{ dell_rhn_channels }}'
 
 - name: install packages
   yum: pkg={{ item }}
@@ -30,7 +16,7 @@
 - name: install omreport packages
   yum: pkg={{ item }}
   with_items: "{{ dell_omreport_packages }}"
-  when: dell_omreport_packageges.0 != "" and dell_omreport
+  when: dell_omreport_packages.0 != "" and dell_omreport
   register: reg_installed_omreport
 
 - name: restart dell services if we just installed them
