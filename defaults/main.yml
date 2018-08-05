@@ -1,5 +1,7 @@
 ---
 
+dsu_role_git_repo: https://github.com/SecurityShift/ansible-role-dell-system-updates
+
 dell_rhn_channels:
   - 'dell-dsu-el7-x86_64'
   - 'dell-dsu-independent-x86_64'

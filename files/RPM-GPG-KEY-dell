@@ -1,3 +1,6 @@
+# Ansible Managed - DO NOT EDIT!
+# See https://github.com/SecurityShift/ansible-role-dell-system-updates/blob/master/files/RPM-GPG-KEY-dell
+
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1.4.5 (Cygwin)
 

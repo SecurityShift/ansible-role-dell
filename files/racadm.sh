@@ -1,4 +1,6 @@
 #!/bin/bash
+# Ansible Managed - DO NOT EDIT!
+# See https://github.com/SecurityShift/ansible-role-dell-system-updates/blob/master/files/racadm.sh
 
 # Time saver for racadm commands - to manage remote hosts' iDRAC interface
 # Command Reference guide is called 
