@@ -1,4 +1,5 @@
 ---
 
- - name: restart_dell_services
-   command: /opt/dell/srvadmin/sbin/srvadmin-services.sh restart
+- name: restart_dell_services
+  command: /opt/dell/srvadmin/sbin/srvadmin-services.sh restart
+  when: no_restart is not defined and not no_restart
