@@ -1,4 +1,5 @@
 ---
+# defaults file for dell-system-updates
 
 dsu_role_git_repo: https://github.com/SecurityShift/ansible-role-dell-system-updates
 
