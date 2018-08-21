@@ -25,8 +25,8 @@
 
 - name: copy in idrac csc helper scripts
   copy:
-    src: {{ item }}
-    dest: /usr/local/bin/{{ item }}
+    src: '{{ item }}'
+    dest: '/usr/local/bin/{{ item }}'
     mode: 0755
     owner: root
     group: root
