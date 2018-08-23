@@ -1,4 +1,12 @@
 ---
+# defaults file for dell-system-updates
+
+dsu_role_git_repo: https://github.com/SecurityShift/ansible-role-dell-system-updates
+
+dell_rhn_channels:
+  - 'dell-dsu-el7-x86_64'
+  - 'dell-dsu-independent-x86_64'
+
 # defaults file for ansible-role-dell
 # set to false to not install anything
 install_dell_dsu: True
