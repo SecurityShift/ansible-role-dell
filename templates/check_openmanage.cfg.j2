@@ -1,4 +1,4 @@
 # {{ ansible_managed }}
 # See {{ dsu_role_git_repo }}/blob/master/templates/check_openmanage.cfg.j2
 
-command[check_openmanage]=/usr/lib64/nagios/plugins/check_openmanage
+command[check_openmanage]=/usr/lib64/nagios/plugins/check_openmanage -i -e -s -I
