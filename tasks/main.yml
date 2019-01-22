@@ -9,13 +9,13 @@
     channels: '{{ dell_rhn_channels }}'
 
 - name: install packages
-  yum: pkg={{ item }}
-  with_items: "{{ dell_packages }}"
+  yum:
+    name: "{{ dell_packages }}"
   when: dell_packages.0 != ""
 
 - name: install omreport packages
-  yum: pkg={{ item }}
-  with_items: "{{ dell_omreport_packages }}"
+  yum:
+    name: "{{ dell_omreport_packages }}"
   when: dell_omreport_packages.0 != "" and dell_omreport
   register: reg_installed_omreport
 
@@ -71,4 +71,16 @@
   tags:
     - monitoring
 
+- name: Allow nrpe to run sudo check_openmanage
+  template:
+    src: 50-nrpe-check-openmanage.j2
+    dest: /etc/sudoers.d/50-nrpe-check-openmanage
+    owner: root
+    group: root
+    mode: 0640
+    validate: '/usr/sbin/visudo -cf %s'
+  notify:
+    - update aide
+  tags:
+    - monitoring
 
