@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+# See {{ dsu_role_git_repo }}/blob/master/templates/50-nrpe-check-openmanage.j2
+
+Defaults:nrpe !requiretty,!syslog
+nrpe ALL=(ALL) NOPASSWD:/usr/lib64/nagios/plugins/check_openmanage
